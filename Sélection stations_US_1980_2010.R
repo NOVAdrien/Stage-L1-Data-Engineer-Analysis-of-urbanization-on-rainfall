@@ -137,6 +137,11 @@ for (i_station in 56:length(my_pluv_3$id)) {
   gc()
   
 }
+my_pluv_4 <- my_pluv_3[my_pluv_3$urbain>=quantile(my_pluv_3$urbain, 0.75),]
+
 
 # Saving table with data
-write.table(my_pluv_3, file = paste0(land, '_', start_year, '_', end_year, '_', urb_min, '%_', urb_max, '%_', Rmin, '-', Rmax, 'km'), sep = ";")
+write.table(my_pluv_4, 
+            file = paste0(land, '_', start_year, '_', end_year, '_', urb_min, '%_', urb_max, '%_', Rmin, '-', Rmax, 'km.txt'),
+            row.names = FALSE,
+            sep = ";")
